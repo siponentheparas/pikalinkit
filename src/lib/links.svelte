@@ -1,9 +1,9 @@
 <script>
-    
+    let link = "https://wilma.riveria.fi";
 </script>
 
 <main>
     <div>
-        <a href="https://wilma.riveria.fi" target="_blank" rel="noreferrer">wilma</a>
+        <a href={link} target="_blank" rel="noreferrer">wilma</a>
     </div>
 </main>
