@@ -2,10 +2,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-#[tauri::command]
-fn get_internet() -> bool {
-    online::check(Some(2)).is_ok()
-}
 
 fn main() {
     tauri::Builder::default()
