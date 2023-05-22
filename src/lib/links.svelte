@@ -19,9 +19,9 @@
     refresh();
 </script>
 
-<ul>
+<div>
     {#each links as link}
         <button on:click={() => openLink(link.url)}>{link.name}<br></button>
     {/each}
     <a href="riveria.fi" target="_blank" rel="noreferrer">riveira</a>
-</ul>
+</div>
