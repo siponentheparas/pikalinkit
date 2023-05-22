@@ -24,6 +24,7 @@ struct Link {
     url: String
 }
 
+// add links to file to remember
 #[tauri::command]
 fn add_link(name: String, url: String) {
     let mut links = get_links();
@@ -35,6 +36,7 @@ fn add_link(name: String, url: String) {
     fs::write(data_file, json).unwrap();
 }
 
+// gets links so rust can understand them
 fn get_links() -> Vec<Link> {
     let mut data_file: PathBuf = dirs::home_dir().unwrap();
     data_file.push(".siponen/links.json");
@@ -43,6 +45,7 @@ fn get_links() -> Vec<Link> {
     return links
 }
 
+// gets links so frontend can understand them
 #[tauri::command]
 fn get_links_json() -> serde_json::Value {
     let mut data_file: PathBuf = dirs::home_dir().unwrap();
