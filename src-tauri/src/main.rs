@@ -13,7 +13,7 @@ use serde_json;
 fn main() {
     first_install();
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![])
+        .invoke_handler(tauri::generate_handler![get_links_json, add_link])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
@@ -24,6 +24,7 @@ struct Link {
     url: String
 }
 
+#[tauri::command]
 fn add_link(name: String, url: String) {
     let mut links = get_links();
     let link: Link = Link { name: name, url: url };
@@ -40,6 +41,15 @@ fn get_links() -> Vec<Link> {
     let contents = fs::read_to_string(data_file).unwrap();
     let links: Vec<Link> = serde_json::from_str(&contents).unwrap();
     return links
+}
+
+#[tauri::command]
+fn get_links_json() -> serde_json::Value {
+    let mut data_file: PathBuf = dirs::home_dir().unwrap();
+    data_file.push(".siponen/links.json");
+    let contents = fs::read_to_string(data_file).unwrap();
+    let links: Vec<Link> = serde_json::from_str(&contents).unwrap();
+    return serde_json::json!(&links)
 }
 
 // If program was installed first time this function creates the data directory and data file for links
