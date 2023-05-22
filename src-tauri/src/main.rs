@@ -6,6 +6,7 @@
 
 use std::path::PathBuf;
 use std::fs::{self, DirBuilder};
+use std::vec;
 use serde::{Serialize, Deserialize};
 use serde_json;
 
@@ -23,12 +24,22 @@ struct Link {
     url: String
 }
 
-// fn add_link(name: String, url: String) {
-
-// }
+fn add_link(name: String, url: String) {
+    let mut links = get_links();
+    let link: Link = Link { name: name, url: url };
+    links.push(link);
+    let json = serde_json::to_string(&links).unwrap();
+    let mut data_file: PathBuf = dirs::home_dir().unwrap();
+    data_file.push(".siponen/links.json");
+    fs::write(data_file, json).unwrap();
+}
 
 fn get_links() -> Vec<Link> {
-    
+    let mut data_file: PathBuf = dirs::home_dir().unwrap();
+    data_file.push(".siponen/links.json");
+    let contents = fs::read_to_string(data_file).unwrap();
+    let links: Vec<Link> = serde_json::from_str(&contents).unwrap();
+    return links
 }
 
 // If program was installed first time this function creates the data directory and data file for links
@@ -42,7 +53,12 @@ fn first_install() {
     let mut file: PathBuf = data_dir.clone();
     file.push("links.json");
     if !file.exists() {
-        fs::write(file, "").unwrap();
+        let example_link: Link = Link { name: "google".to_string(), url: "google.com".to_string() };
+        let example: Vec<Link> = vec![example_link];
+        let json = serde_json::to_string(&example).unwrap();
+        fs::write(file, json).unwrap();
         println!("Links data file created\n");
     }
+    std::thread::sleep(std::time::Duration::from_secs(2));
+    add_link("kakka".to_string(), "riveria.fi".to_string());
 }
