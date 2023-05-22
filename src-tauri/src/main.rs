@@ -100,7 +100,7 @@ fn first_install() {
     let mut file: PathBuf = data_dir.clone();
     file.push("links.json");
     if !file.exists() {
-        let example_link: Link = Link { name: "google".to_string(), url: "google.com".to_string() };
+        let example_link: Link = Link { name: "google".to_string(), url: "https://google.com".to_string() };
         let example: Vec<Link> = vec![example_link];
         let json = serde_json::to_string(&example).unwrap();
         fs::write(file, json).unwrap();
