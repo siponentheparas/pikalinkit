@@ -12,7 +12,7 @@
     }
 
     async function addLink(name, url) {
-        console.log("link name length: " + name.length)
+        console.log("link name length: " + name.length);
         if (name != "" && url != "" && name.length <= 13) {
             await invoke("add_link", { name: name, url: url });
             isAddOpen.set(false);
@@ -50,14 +50,13 @@
 
 <style>
     .add_link_bar {
+        background-color: #000000;
         display: flex;
+        border-bottom: 0.5px solid white;
         height: 4rem;
-        border: 1px solid #ffffff;
-        border-radius: 25px;
         justify-content: space-evenly;
         align-items: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        padding-bottom: 1rem;
     }
 
     .add_link_input {
