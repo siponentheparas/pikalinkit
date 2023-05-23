@@ -30,6 +30,7 @@
     color: rgb(255, 255, 255);
     border: 1px solid #ffffff;
     border-style: solid;
+    border-radius: 5px;
     transition-duration: 0.1s;
 }
 
@@ -62,6 +63,27 @@
     border: 2px solid #ffffff;
     border-radius: 25px;
     transition-duration: 0.1s;
+}
+
+.link_delete {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: rgb(26, 24, 24);
+    color: rgb(255, 255, 255);
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    transition-duration: 0.1s;
+}
+
+.link_delete:hover {
+    background-color: #2e362f; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.link_delete:active {
+    background-color: #407748;
+    color: white;
 }
 
 .link_button:hover {

@@ -4,6 +4,9 @@ dependencies:
   '@tauri-apps/api':
     specifier: ^1.3.0
     version: 1.3.0
+  svelte-material-icons:
+    specifier: ^3.0.4
+    version: 3.0.4(svelte@3.59.1)
 
 devDependencies:
   '@sveltejs/vite-plugin-svelte':
@@ -473,10 +476,17 @@ packages:
       svelte: 3.59.1
     dev: true
 
+  /svelte-material-icons@3.0.4(svelte@3.59.1):
+    resolution: {integrity: sha512-b126iWd/kMZgstYbGIocmGwN2txGFW+S+BY+d66yPRVSgcZgrnzRJWQbhn0OCy7dzzjkYfgI/i2PdWRukqu+RQ==}
+    peerDependencies:
+      svelte: ^3.0.0
+    dependencies:
+      svelte: 3.59.1
+    dev: false
+
   /svelte@3.59.1:
     resolution: {integrity: sha512-pKj8fEBmqf6mq3/NfrB9SLtcJcUvjYSWyePlfCqN9gujLB25RitWK8PvFzlwim6hD/We35KbPlRteuA6rnPGcQ==}
     engines: {node: '>= 8'}
-    dev: true
 
   /vite@4.3.8:
     resolution: {integrity: sha512-uYB8PwN7hbMrf4j1xzGDk/lqjsZvCDbt/JC5dyfxc19Pg8kRm14LinK/uq+HSLNswZEoKmweGdtpbnxRtrAXiQ==}

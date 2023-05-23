@@ -31,6 +31,7 @@
 
 <div>
     <div class="tool_bar">
+        <button class="tool_bar_item" on:click={refresh}>Päivitä</button>
         <button class="tool_bar_item">Lisää Linkki</button>
         <button class="tool_bar_item" on:click={quit}>Quittaa</button>
     </div>
@@ -40,7 +41,7 @@
             <div class="link_item">
                 <h1>{link.name}</h1>
                 <button class="link_button" on:click={() => openLink(link.url)}>AVAA</button>
-                <button class="link_delete" on:click={() => deleteLink(link.name)}>POISTA</button>
+                <button class="link_delete" on:click={() => deleteLink(link.name)}>X</button>
             </div>
         {/each}
     </div>
