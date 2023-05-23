@@ -3,11 +3,19 @@
 
     import { invoke } from "@tauri-apps/api/tauri"
     import { open } from '@tauri-apps/api/shell';
+
     let links = [];
+    
+    let showDelete = false;
 
     function openLink(url) {
         console.log(`Opening link: ${url}`);
         open(url);
+    }
+
+    
+    function toggleDelete() {
+        showDelete != showDelete;
     }
 
     async function refresh() {
@@ -20,13 +28,17 @@
         await invoke("quit_app")
     }
 
+    async function deleteLink(name) {
+        await invoke('deleteLink', { name: name })
+    }
+
     refresh();
 </script>
 
 <div>
     <div class="tool_bar">
         <button class="tool_bar_item">Lisää Linkki</button>
-        <button class="tool_bar_item">Poista Linkki</button>
+        <button class="tool_bar_item" on:click={toggleDelete}>Poista Linkki</button>
         <button class="tool_bar_item" on:click={quit}>Quittaa</button>
     </div>
     
@@ -38,4 +50,12 @@
             </div>
         {/each}
     </div>
+
+    {#if showDelete}
+        <div class="delete_popup">
+            <input type="text" placeholder="Nimi" class="popup_input">
+            <button class="popup_button_confirm">Poista</button>
+            <button class="popup_button_cancel">Peruuta</button>
+        </div>
+    {/if}
 </div>
