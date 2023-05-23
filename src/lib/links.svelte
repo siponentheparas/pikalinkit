@@ -20,8 +20,18 @@
 </script>
 
 <div>
-    {#each links as link}
-        <button on:click={() => openLink(link.url)}>{link.name}<br></button>
-    {/each}
-    <a href="riveria.fi" target="_blank" rel="noreferrer">riveira</a>
+    <div class="tool_bar">
+        <button class="tool_bar_item">Lisää Linkki</button>
+        <button class="tool_bar_item">Poista Linkki</button>
+        <button class="tool_bar_item">Quittaa</button>
+    </div>
+    
+    <div class="links">
+        {#each links as link}
+            <div class="link_item">
+                <h1>{link.name}</h1>
+                <button class="link_button" on:click={() => openLink(link.url)}>AVAA</button>
+            </div>
+        {/each}
+    </div>
 </div>
