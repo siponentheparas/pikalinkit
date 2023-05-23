@@ -16,6 +16,10 @@
         console.log(`Links: ${JSON.stringify(links)}`);
     }
 
+    async function quit(){
+        await invoke("quit_app")
+    }
+
     refresh();
 </script>
 
@@ -23,7 +27,7 @@
     <div class="tool_bar">
         <button class="tool_bar_item">Lisää Linkki</button>
         <button class="tool_bar_item">Poista Linkki</button>
-        <button class="tool_bar_item">Quittaa</button>
+        <button class="tool_bar_item" on:click={quit}>Quittaa</button>
     </div>
     
     <div class="links">

@@ -13,7 +13,7 @@ use serde_json;
 fn main() {
     first_install();
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![get_links_json, add_link, delete_link])
+        .invoke_handler(tauri::generate_handler![get_links_json, add_link, delete_link, quit_app])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
@@ -87,6 +87,12 @@ fn link_exists(name: String) -> bool {
     }
     println!("link {name:?} does not exist");
     return false
+}
+
+// quit the app
+#[tauri::command]
+fn quit_app() {
+    std::process::exit(0);
 }
 
 // If program was installed first time this function creates the data directory and data file for links
