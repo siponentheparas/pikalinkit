@@ -12,7 +12,8 @@
     }
 
     async function addLink(name, url) {
-        if (name != "" && url != "") {
+        console.log("link name length: " + name.length)
+        if (name != "" && url != "" && name.length <= 13) {
             await invoke("add_link", { name: name, url: url });
             isAddOpen.set(false);
             refresh();
