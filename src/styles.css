@@ -72,6 +72,7 @@
     color: rgb(255, 255, 255);
     border: 2px solid #ffffff;
     border-radius: 25px;
+    text-align: center;
     transition-duration: 0.1s;
 }
 
