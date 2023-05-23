@@ -26,8 +26,14 @@ struct Link {
 
 // add links to file to remember
 #[tauri::command]
-fn add_link(name: String, url: String) {
+fn add_link(name: String, mut url: String) {
+    // check if the link name already exists
     if !link_exists(name.clone()) {
+        // check if url starts with "https://"
+        if !url.starts_with("https://") || !url.starts_with("http://") { // this doesn't work and i don't know why
+            url = String::from("https://") + &url;
+        }
+
         let mut links = get_links();
         let link: Link = Link { name: name, url: url };
         links.push(link.clone());
