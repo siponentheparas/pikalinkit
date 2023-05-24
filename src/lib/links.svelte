@@ -34,7 +34,7 @@
     <div class="tool_bar">
         <button class="tool_bar_item" on:click={refresh}>Päivitä</button>
         <button class="tool_bar_item" on:click={() => {isAddOpen.set(true)}}>Lisää Linkki</button>
-        <button class="tool_bar_item" on:click={quit}>Quittaa</button>
+        <button class="tool_bar_item" on:click={quit}>Poistu</button>
     </div>
     
     <div class="links">

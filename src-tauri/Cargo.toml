@@ -1,6 +1,6 @@
 [package]
 name = "pikalinkit"
-version = "0.0.1"
+version = "1.0.0"
 description = "Pikalinkkejä"
 authors = ["siponen"]
 license = ""
