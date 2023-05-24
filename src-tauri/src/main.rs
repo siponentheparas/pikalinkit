@@ -30,7 +30,7 @@ fn add_link(name: String, mut url: String) {
     // check if the link name already exists
     if !link_exists(name.clone()) {
         // check if url starts with "https://" or "http://"
-        if !url.starts_with("https://") || !url.starts_with("http://") { // this doesn't work and i don't know why
+        if !(url.starts_with("https://") || url.starts_with("http://")) {
             url = String::from("https://") + &url;
         }
 
